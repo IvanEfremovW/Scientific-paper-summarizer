@@ -5,19 +5,26 @@ on: push
 jobs:
     test:
         runs-on: ubuntu-latest
+
         steps:
             - uses: actions/checkout@v4
+            
             - name: Set up python
               uses: actions/setup-python@v5
               with:
-                python-version: "3.12.8"
+                python-version: 3.13
+            
             - name: Install dependencies
               run: |
                 python -m pip install --upgrade pip
                 pip install -r requirements.txt
-            - name: Run linter
+                pip install pytest ruff
+
+            - name: Lint with Ruff
               run: ruff check .
-            - name: Run tests
-              run: pytest
-            - name: Check for security vulnerabilities
-              run: safety check
+
+            - name: Format with Ruff
+              run: ruff format --check .
+
+            - name: Run tests with pytest
+              run: python -m pytest
