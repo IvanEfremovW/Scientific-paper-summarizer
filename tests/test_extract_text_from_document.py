@@ -1,6 +1,6 @@
 import pymupdf
 import tempfile
-from src.ingestion import exctract_text_from_document
+from summarizer.ingestion import exctract_text_from_document
 
 
 def test_extract_text_from_document():
