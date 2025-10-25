@@ -37,8 +37,8 @@ class Summarizer:
             - Resolve redundancies and ensure logical flow.
             - Maintain a consistent length (~4–5 sentences).
             - Maximize information density while preserving accuracy.
-            3. Return ONLY the final, polished summary. Do not include iteration steps, commentary, or formatting.
-
+            3. Return ONLY the final, polished summary in 4-5 sentences. Do not include iteration steps, commentary, or formatting.
+            
             Partial summaries:
             {text}
             """
