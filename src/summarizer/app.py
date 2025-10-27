@@ -21,7 +21,7 @@ def main():
         outputs=gr.Textbox(label="Summary", lines=25),
     )
 
-    interface.launch()
+    interface.launch(server_name="0.0.0.0")
 
 
 if __name__ == "__main__":
