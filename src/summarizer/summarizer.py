@@ -52,7 +52,7 @@ class Summarizer:
         )
 
     def _setup_llm_model(self):
-        from summarizer.config import SUMMARIZATION_MODEL, USE_4BIT
+        from .config import SUMMARIZATION_MODEL, USE_4BIT
 
         quantization_config = (
             BitsAndBytesConfig(
@@ -68,7 +68,7 @@ class Summarizer:
         llm = HuggingFacePipeline.from_model_id(
             model_id=SUMMARIZATION_MODEL,
             task="text-generation",
-            device_map="auto",
+            device_map="cuda",
             model_kwargs=dict(quantization_config=quantization_config),
             pipeline_kwargs=dict(
                 max_new_tokens=512,
